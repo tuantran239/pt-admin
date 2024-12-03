@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  refine-app:
+    container_name: pt-admin
+    image: travis99/pt-admin
+    build: .
+    env_file: .env
+    ports:
+      - "5173:80"

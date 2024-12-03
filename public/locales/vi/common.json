@@ -1,0 +1,21 @@
+{
+  "pages": {
+    "login": {
+      "title": "Đăng nhập",
+      "usernameInput": "Tên đăng nhập hoặc email",
+      "passwordInput": "Mật khẩu",
+      "rememberMe": "Ghi nhớ đăng nhập",
+      "forgotPassword": "Quên mật khẩu",
+      "dontHaveAccount": "Không có tài khoản"
+    },
+    "register": {
+      "title": "Đăng ký",
+      "usernameInput": "Tên đăng nhập",
+      "emailInput": "Email",
+      "passwordInput": "Mật khẩu",
+      "confirmPasswordInput": "Xác nhận mật khẩu",
+      "phoneNumberInput": "Số điện thoại",
+      "haveAccount": "Đã có tài khoản"
+    }
+  }
+}
