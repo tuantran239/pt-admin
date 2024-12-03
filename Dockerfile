@@ -31,6 +31,6 @@ COPY --from=builder /app/refine/deploy/nginx/default.conf /etc/nginx/conf.d
 
 COPY --from=builder /app/refine/dist /usr/share/nginx/html
 
-EXPOSE 5173
+EXPOSE 80
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"] 
