@@ -3,7 +3,7 @@ CI_DEPLOY_SSH_PORT="${CI_DEPLOY_SSH_PORT:-22}"
 CI_DEPLOY_HOST="$CI_DEPLOY_USER@$CI_DEPLOY_SERVER"
 
 scp -o StrictHostKeyChecking=no -r -P $CI_DEPLOY_SSH_PORT \
-  ./docker-compose.production.yml \
+  ./docker-compose.staging.yml \
   $CI_DEPLOY_HOST:/usr/app/admin
 
 ssh -o StrictHostKeyChecking=no -p $CI_DEPLOY_SSH_PORT $CI_DEPLOY_HOST << 'EOF'
