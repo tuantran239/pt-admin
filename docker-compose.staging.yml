@@ -7,6 +7,6 @@ services:
     image: travis99/pt-admin
     # env_file: .env
     ports:
-      - "80:80"
+      - "5137:5173"
     tty: true
     stdin_open: true
