@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   refine-app:
-    container_name: ptadmin
+    container_name: pt-admin
     restart: unless-stopped
     image: travis99/pt-admin
     # env_file: .env
