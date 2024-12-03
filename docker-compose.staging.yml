@@ -2,11 +2,11 @@ version: '3.9'
 
 services:
   refine-app:
-    container_name: pt-admin
+    container_name: ptadmin
     restart: unless-stopped
     image: travis99/pt-admin
     # env_file: .env
     ports:
-      - "5137:5173"
+      - "5173:5173"
     tty: true
     stdin_open: true
