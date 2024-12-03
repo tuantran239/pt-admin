@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUILD_FAIL: ${{ (needs.build.result == 'failure' || needs.build.result == 'timed_out') || (needs.deploy.result == 'failure' || needs.deploy.result == 'timed_out') }}
-      SLACK_WEBHOOK: ${{ vars.SLACK_WEBHOOK }}
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     needs:
       - build
       - deploy
