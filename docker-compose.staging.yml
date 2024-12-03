@@ -5,7 +5,7 @@ services:
     container_name: pt-admin
     restart: unless-stopped
     image: travis99/pt-admin
-    env_file: .env
+    # env_file: .env
     ports:
       - "80:80"
     tty: true
