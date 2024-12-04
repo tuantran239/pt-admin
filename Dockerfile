@@ -27,7 +27,7 @@ FROM nginx:alpine as runner
 
 ENV NODE_ENV production
 
-COPY --from=builder /app/refine/deploy/nginx/default.conf /etc/nginx/conf.d
+COPY --from=builder /usr/src/app/deploy/nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=builder /app/refine/dist /usr/share/nginx/html
 

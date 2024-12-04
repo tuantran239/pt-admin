@@ -15,5 +15,7 @@ ssh -o StrictHostKeyChecking=no -p $CI_DEPLOY_SSH_PORT $CI_DEPLOY_HOST << 'EOF'
 
  docker compose -f docker-compose.staging.yml down
 
+ docker rmi travis99/pt-admin
+
  docker compose -f docker-compose.staging.yml up -d --build 
 EOF
