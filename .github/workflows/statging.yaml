@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-     CI_DEPLOY_IMAGE: ${{ vars.CI_DEPLOY_IMAGE }}
+     CI_DEPLOY_IMAGE: ${{ secrets.CI_DEPLOY_IMAGE }}
      CI_PRIVATE_KEY: ${{ secrets.CI_PRIVATE_KEY }}
      CI_REGISTRY_USER: ${{ secrets.DOCKERHUB_USERNAME }}
      CI_REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
