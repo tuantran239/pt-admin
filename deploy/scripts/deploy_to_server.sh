@@ -24,7 +24,5 @@ ssh -o StrictHostKeyChecking=no -p $CI_DEPLOY_SSH_PORT $CI_DEPLOY_HOST << 'EOF'
     echo "Image '$CI_DEPLOY_IMAGE' does not exist."
  fi
 
- docker rmi $CI_DEPLOY_IMAGE
-
  docker compose -f docker-compose.staging.yml up -d --build 
 EOF
