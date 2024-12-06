@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ vars.CI_DEPLOY_IMAGE }}        
+          tags: ${{ secrets.CI_DEPLOY_IMAGE }}        
 
   deploy:
     runs-on: ubuntu-latest
@@ -33,12 +33,13 @@ jobs:
     env:
      CI_DEPLOY_IMAGE: ${{ vars.CI_DEPLOY_IMAGE }}
      CI_PRIVATE_KEY: ${{ secrets.CI_PRIVATE_KEY }}
-     CI_DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-     CI_DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+     CI_REGISTRY_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+     CI_REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
      CI_DEPLOY_USER: ${{ secrets.CI_DEPLOY_USER }}
      CI_DEPLOY_SSH_PORT: ${{ secrets.CI_DEPLOY_SSH_PORT }}
      CI_DEPLOY_SERVER: ${{ secrets.CI_DEPLOY_SERVER }}
      CI_REGISTRY: ${{ secrets.CI_REGISTRY }}
+     CI_ENV_VARS: ${{ secrets.CI_ENV_VARS }}
     steps:
       - name: Check version
         uses: actions/checkout@v4
@@ -48,6 +49,7 @@ jobs:
           ssh-private-key: ${{ secrets.CI_PRIVATE_KEY }}  
       - name: Deploy to DigitalOcean
         run: |
+          bash ./deploy/scripts/set_up_env.sh
           bash ./deploy/scripts/deploy_to_server.sh
           
   notification:
