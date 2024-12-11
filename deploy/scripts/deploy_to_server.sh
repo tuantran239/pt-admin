@@ -5,7 +5,12 @@ CI_DEPLOY_HOST="$CI_DEPLOY_USER@$CI_DEPLOY_SERVER"
 scp -o StrictHostKeyChecking=no -r -P $CI_DEPLOY_SSH_PORT \
   ./.env \
   ./docker-compose.staging.yml \
+  ./deploy/scripts/config_nginx.sh \
   $CI_DEPLOY_HOST:/usr/app/admin
+
+scp -o StrictHostKeyChecking=no -r -P $CI_DEPLOY_SSH_PORT \
+  ./deploy/nginx/ptadmin.site \
+  $CI_DEPLOY_HOST:/etc/nginx/sites-available  
 
 ssh -o StrictHostKeyChecking=no -p $CI_DEPLOY_SSH_PORT $CI_DEPLOY_HOST << 'EOF'
  set -e
@@ -25,4 +30,6 @@ ssh -o StrictHostKeyChecking=no -p $CI_DEPLOY_SSH_PORT $CI_DEPLOY_HOST << 'EOF'
  fi
 
  docker compose -f docker-compose.staging.yml up -d --build 
+
+ bash ./config_nginx.sh
 EOF
