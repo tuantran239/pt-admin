@@ -1,9 +1,9 @@
 server {
-	
     server_name ptadmin.site www.ptadmin.site;
 
 	location / {
-        proxy_pass http://127.0.0.1:5173;
+        proxy_pass http://188.166.198.142:5173;
+        proxy_set_header Host $host;
 		try_files $uri $uri/ =404;
 	}
 
@@ -32,7 +32,8 @@ server {
 
 
     location / {
-      proxy_pass http://127.0.0.1:5173;
+      proxy_pass http://188.166.198.142:5173;
+      proxy_set_header Host $host;
       try_files $uri /index.html =404;
     }
 }
